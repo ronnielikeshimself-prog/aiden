@@ -131,7 +131,7 @@ def main():
         raise ValueError("SITES and START_COUNTS must have the same length.")
 
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless=new")  # uncomment for headless mode
+    #options.add_argument("--headless=new")  # uncomment for headless mode
     options.add_argument("--start-maximized")
     options.add_argument("--ignore-certificate-errors")
     options.add_argument("--allow-insecure-localhost")
