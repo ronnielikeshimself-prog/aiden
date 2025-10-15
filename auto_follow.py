@@ -10,6 +10,7 @@ Notes:
  - To run headless (without opening the browser), uncomment the headless option in ChromeOptions.
 """
 import os
+import tempfile
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
