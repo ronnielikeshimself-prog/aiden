@@ -1,0 +1,29 @@
+name: Run Auto Follow Script Every 2.5 Hours
+
+on:
+  schedule:
+    # Every 2 hours and 30 minutes (approx)
+    - cron: "0 */2 * * *"     # Runs every 2 hours
+    - cron: "30 */5 * * *"    # Adds a half-hour offset
+  workflow_dispatch:          # Allows manual run
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install selenium webdriver-manager
+
+      - name: Run script
+        run: python auto_follow.py
