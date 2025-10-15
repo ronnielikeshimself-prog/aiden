@@ -138,6 +138,9 @@ def main():
     options.add_argument("--ignore-ssl-errors=yes")
     options.add_argument("--test-type")
     options.add_experimental_option("excludeSwitches", ["enable-automation", "enable-logging"])
+    # Create a temporary user data dir
+    user_data_dir = tempfile.mkdtemp()
+    options.add_argument(f"--user-data-dir={user_data_dir}")
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
